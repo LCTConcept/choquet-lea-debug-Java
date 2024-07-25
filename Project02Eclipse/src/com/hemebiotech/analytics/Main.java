@@ -13,7 +13,7 @@ public class Main {
      * The path to these are given by the following Strings "SymptomFileToReadAccess" and "WriteSymptomFileAccess".
      */
     public static final String symptomFileToReadAccess = "symptoms.txt";
-    public static final String WriteSymptomFileAccess = "result.out";
+    public static final String writeSymptomFileAccess = "result.out";
     /**
      * The main method orchestrates the following process :
      * Reading symptoms from a source file.
