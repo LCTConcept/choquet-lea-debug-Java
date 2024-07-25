@@ -12,7 +12,7 @@ public class Main {
      * This application needs 2 files : One to read from and One to write into.
      * The path to these are given by the following Strings "SymptomFileToReadAccess" and "WriteSymptomFileAccess".
      */
-    public static final String SymptomFileToReadAccess = "symptoms.txt";
+    public static final String symptomFileToReadAccess = "symptoms.txt";
     public static final String WriteSymptomFileAccess = "result.out";
     /**
      * The main method orchestrates the following process :
