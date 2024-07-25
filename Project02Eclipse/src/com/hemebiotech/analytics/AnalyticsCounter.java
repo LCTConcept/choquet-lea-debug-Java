@@ -1,43 +1,33 @@
-package com.hemebiotech.analytics;
+package Project02Eclipse.src.com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+/**
+ * The AnalyticsCounter class provides methods to count occurrences of symptoms.
+ */
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
-
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-
-			line = reader.readLine();	// get another symptom
+	/**
+	 * Counts the occurrences of each symptom in the given list.
+	 * Uses a TreeMap to store the symptom as the key and its occurrence count as the value in alphabetical order.
+	 * @param symptomsToCount a list of symptoms to be counted
+	 * @return a map where the key is the symptom and the value is the number of occurrences of that symptom
+	 */
+public Map<String, Integer> countSymptoms (List<String> symptomsToCount){
+	Map<String, Integer> symptomsDictionnary = new TreeMap<>();
+	// Loop through each symptom in the list symptomsToCount
+	for (String symptom : symptomsToCount){
+		Integer count = symptomsDictionnary.get(symptom);
+		// If the symptom already exists in the dictionary, increment its count by 1
+		if (count != null) {
+			symptomsDictionnary.put(symptom, count+1);
 		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+		// Otherwise, add the symptom to the dictionary with a count of 1
+		else {
+			symptomsDictionnary.put(symptom, 1);
+		}
 	}
+	// Once the loop is finished, return the updated dictionary
+	return symptomsDictionnary;
+}
 }
