@@ -22,7 +22,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // Using the constructor to read the file
-        ReadSymptomDataFromFile listSymptoms = new ReadSymptomDataFromFile(SymptomFileToReadAccess);
+        ReadSymptomDataFromFile listSymptoms = new ReadSymptomDataFromFile(symptomFileToReadAccess);
         // Store the results of the getSymptoms function to access in the main method
         List<String> listSymptomsread = listSymptoms.getSymptoms();
 
@@ -30,7 +30,7 @@ public class Main {
         Map<String, Integer> symptomsCounted = countingOfSymptoms.countSymptoms(listSymptomsread);
 
         // Using the constructor to create the result.out file
-        WriteSymptomDataToFile manageFile = new WriteSymptomDataToFile(WriteSymptomFileAccess);
+        WriteSymptomDataToFile manageFile = new WriteSymptomDataToFile(writeSymptomFileAccess);
         // Write to the file using the writeSymptoms method
         manageFile.writeSymptoms(symptomsCounted);
     }
